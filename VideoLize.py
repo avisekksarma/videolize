@@ -42,9 +42,12 @@ def generate_output():
 st.image("videolize.png")
 main_col1 , main_col2 = st.columns(2)
 with main_col1:
-    prompts = st.text_area("Enter prompts separated by comma: ")
+    prompts = st.text_area("Enter Prompts separated by comma: ")
     # print(type(prompts))
-    audio = st.text_area("Enter audio that will be overlayed in generated video: ")
+    agree = st.checkbox('Enter Audio Script [Optional]:')
+
+    if agree:
+        audio = st.text_area("Enter audio that will be overlayed in generated video: ")
     btn = st.button('Generate')
 with main_col2:
     show_generated_content = st.empty()
