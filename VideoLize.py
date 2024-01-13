@@ -26,7 +26,7 @@ def generate_output():
     count = 0
     my_bar = st.progress(count, text=progress_text)
 
-    for percent_complete in range(100):
+    for _ in range(100):
         time.sleep(0.1)
         count+=1
         my_bar.progress(count, text=progress_text)
@@ -36,7 +36,6 @@ def generate_output():
     return display_video()
     # st.write('Generated....')
     # st.button("Rerun")
-
 
 # main content
 st.image("videolize.png")
@@ -48,26 +47,6 @@ with main_col1:
     btn = st.button('Generate')
 with main_col2:
     show_generated_content = st.empty()
-    
-    # st.markdown(
-    #     """
-    #     <style>
-    #         .progress-container {
-    #             background-color: #E0E0E0;
-    #             border-radius: 10px;
-    #             padding: 10px;
-    #             height: 350px;
-    #             width: 350px;
-    #         }
-    #     </style>
-    #     """,
-    #     unsafe_allow_html=True
-    # )
-
-    # # Use the rectangle to hold the progress bar
-    # progress_container = st.markdown(
-    #     "<div class='progress-container'></div>", unsafe_allow_html=True)
-    # progress_bar = st.progress(0)
 
 if btn:
     video_bytes = generate_output()
